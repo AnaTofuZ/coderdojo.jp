@@ -38,6 +38,8 @@ gem 'rack-user_agent'
 
 gem 'rack-attack'
 
+gem 'lazy_high_charts'
+
 group :development do
   gem 'web-console'
   gem 'spring'
