@@ -32,6 +32,13 @@ class StaticPagesController < ApplicationController
         EventHistory.where(evented_at:
                      Time.zone.local(year).beginning_of_year..Time.zone.local(year).end_of_year).sum(:participants)
     end
+
+    @graph = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(text: '全国の道場数の推移')
+      f.xAxis(categories: @range.to_a)
+      f.series(name: '道場数', yAxis: 0, data: @dojos.values)
+      f.chart(width: 600)
+    end
   end
 
   def letsencrypt

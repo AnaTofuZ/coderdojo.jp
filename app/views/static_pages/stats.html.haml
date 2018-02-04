@@ -60,6 +60,7 @@
             - @range.each do |year|
               %td= @participants[year]
             %td= @participants.values.inject(:+)
+      = high_chart("charts", @graph)
 
     %h3 関連リンク
     %ul{:style => "list-style: none; margin-left: -40px;"}
